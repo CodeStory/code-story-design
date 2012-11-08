@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X5 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="11.6929in" height="8.26772in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 11693 8268"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil0 {fill:red}
+    .fil1 {fill:yellow}
+    .fil2 {fill:url(#id0)}
+   ]]>
+  </style>
+  <radialGradient id="id0" gradientUnits="userSpaceOnUse" cx="5872.5" cy="6785.83" r="3292.68" fx="5872.5" fy="6785.83">
+   <stop offset="0" style="stop-color:red"/>
+   <stop offset="1" style="stop-color:yellow"/>
+  </radialGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <polygon class="fil0" points="10819,4119 8260,4330 9448,2920 7433,3424 7767,1395 5920,3106 4539,1467 3818,3112 1804,2155 2692,4469 874,4721 2381,5799 1455,6004 3498,6862 8776,6871 10035,5742 8976,5503 "/>
+  <polygon class="fil1" points="10462,4332 7526,4773 8756,3347 6855,4151 7610,1792 5848,3969 4673,2051 4030,4021 2157,2543 3415,4850 1626,4954 3303,6121 1849,6095 3808,6865 8197,6872 9651,5900 7956,5754 "/>
+  <polygon class="fil2" points="9165,4825 6977,5180 7894,4033 6477,4679 7040,2783 5727,4533 4851,2991 4372,4575 2976,3387 3914,5242 2580,5325 3830,6263 2747,6242 4206,6861 7477,6868 8561,6086 7298,5969 "/>
+ </g>
+</svg>

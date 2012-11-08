@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW X5 -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="11.6929in" height="8.26772in" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 11693 8268"
+ xmlns:xlink="http://www.w3.org/1999/xlink">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .fil5 {fill:url(#id0)}
+    .fil1 {fill:url(#id1)}
+    .fil7 {fill:url(#id2)}
+    .fil2 {fill:url(#id3)}
+    .fil0 {fill:url(#id4)}
+    .fil8 {fill:url(#id5)}
+    .fil4 {fill:url(#id6)}
+    .fil9 {fill:url(#id7)}
+    .fil6 {fill:url(#id8)}
+    .fil3 {fill:url(#id9)}
+   ]]>
+  </style>
+  <linearGradient id="id0" gradientUnits="userSpaceOnUse" x1="6053.88" y1="4672.28" x2="8803.4" y2="4672.28">
+   <stop offset="0" style="stop-color:#ADD9DF"/>
+   <stop offset="1" style="stop-color:#FDFEFE"/>
+  </linearGradient>
+  <linearGradient id="id1" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="6101.7" y1="4004.88" x2="7991.13" y2="4004.88">
+  </linearGradient>
+  <linearGradient id="id2" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="5489.96" y1="5739.5" x2="5638.11" y2="3813.61">
+  </linearGradient>
+  <linearGradient id="id3" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="6194.53" y1="4382.44" x2="6498.53" y2="2680.06">
+  </linearGradient>
+  <linearGradient id="id4" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="3835.82" y1="5438.14" x2="4390.65" y2="3377.35">
+  </linearGradient>
+  <linearGradient id="id5" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="3996.89" y1="5821.45" x2="4939.72" y2="4250.07">
+  </linearGradient>
+  <linearGradient id="id6" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="4449.61" y1="4752.61" x2="5123.24" y2="3068.55">
+  </linearGradient>
+  <linearGradient id="id7" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="6686.85" y1="5732.15" x2="6145.28" y2="4215.75">
+  </linearGradient>
+  <linearGradient id="id8" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="6412.65" y1="5444.43" x2="5098.46" y2="3097.67">
+  </linearGradient>
+  <linearGradient id="id9" gradientUnits="userSpaceOnUse" xlink:href="#id0" x1="4927.38" y1="4324.35" x2="5655.83" y2="2587.28">
+  </linearGradient>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_212517432">
+   <ellipse class="fil0" cx="4113" cy="4408" rx="1224" ry="986"/>
+   <ellipse class="fil1" cx="7046" cy="4005" rx="945" ry="795"/>
+   <ellipse class="fil2" cx="6347" cy="3531" rx="872" ry="842"/>
+   <ellipse class="fil3" cx="5292" cy="3456" rx="931" ry="919"/>
+   <ellipse class="fil4" cx="4786" cy="3911" rx="931" ry="819"/>
+   <ellipse class="fil5" cx="7429" cy="4672" rx="1375" ry="778"/>
+   <ellipse class="fil6" cx="5756" cy="4271" rx="1579" ry="996"/>
+   <ellipse class="fil7" cx="5564" cy="4777" rx="990" ry="954"/>
+   <ellipse class="fil8" cx="4468" cy="5036" rx="1013" ry="695"/>
+   <ellipse class="fil9" cx="6416" cy="4974" rx="970" ry="696"/>
+  </g>
+  <g id="_212516424">
+   <ellipse class="fil0" cx="4113" cy="4408" rx="1224" ry="986"/>
+   <ellipse class="fil1" cx="7046" cy="4005" rx="945" ry="795"/>
+   <ellipse class="fil2" cx="6347" cy="3531" rx="872" ry="842"/>
+   <ellipse class="fil3" cx="5292" cy="3456" rx="931" ry="919"/>
+   <ellipse class="fil4" cx="4786" cy="3911" rx="931" ry="819"/>
+   <ellipse class="fil5" cx="7429" cy="4672" rx="1375" ry="778"/>
+   <ellipse class="fil6" cx="5756" cy="4271" rx="1579" ry="996"/>
+   <ellipse class="fil7" cx="5564" cy="4777" rx="990" ry="954"/>
+   <ellipse class="fil8" cx="4468" cy="5036" rx="1013" ry="695"/>
+   <ellipse class="fil9" cx="6416" cy="4974" rx="970" ry="696"/>
+  </g>
+ </g>
+</svg>
