@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="js/easeljs-0.5.0.min.js"></script>
+  <script src="js/tweenjs-0.3.0.min.js"></script>
+  <script>
+    var stage;
+    function init() {
+      stage = new createjs.Stage("scores");
+      var canvas = document.getElementById("scores");
+
+      var winnerCapsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
+      winnerCapsule.x = 100;
+      winnerCapsule.y = 355;
+      winnerCapsule.scaleX = 0.75;
+      winnerCapsule.scaleY = 0.75;
+      createjs.Tween.get(winnerCapsule, {loops:true})
+              .to({
+                x:winnerCapsule.x,
+                y:50
+              }, 2500, createjs.Ease.cubicInOut);
+      stage.addChild(winnerCapsule);
+
+      var looserCapsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
+      looserCapsule.x = 200;
+      looserCapsule.y = 355;
+      looserCapsule.scaleX = 0.75;
+      looserCapsule.scaleY = 0.75;
+      createjs.Tween.get(looserCapsule, {loops:true})
+              .to({
+                x:looserCapsule.x,
+                y:150
+              }, 3000, createjs.Ease.cubicInOut);
+      stage.addChild(looserCapsule);
+
+      createjs.Ticker.addListener(window);
+      createjs.Ticker.setFPS(30);
+      createjs.Ticker.useRAF = true;
+    }
+    function tick(elapsedTime) {
+      stage.update(elapsedTime);
+    }
+  </script>
+</head>
+<body onload="init();">
+<canvas id="scores" width="1006" height="566">
+  scores
+</canvas>
+</body>
+</html>
