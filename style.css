@@ -1,4 +1,3 @@
 #scores {
-  background-image: url('png/codestory_background_half.png');
-  background-position: right;
+  background: url('png/codestory_background_half.png') right;
 }
