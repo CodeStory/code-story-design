@@ -15,23 +15,46 @@
       winnerCapsule.y = 355;
       winnerCapsule.scaleX = 0.75;
       winnerCapsule.scaleY = 0.75;
-      createjs.Tween.get(winnerCapsule, {loops:true})
-              .to({
-                x:winnerCapsule.x,
-                y:50
-              }, 2500, createjs.Ease.cubicInOut);
+      createjs.Tween.get(winnerCapsule, {})
+              .to({y:50}, 2500, createjs.Ease.cubicInOut);
+
+      var winnerCosmonaut = new createjs.Bitmap("png/codestory_spaceman_100.png");
+      winnerCosmonaut.x = 122;
+      winnerCosmonaut.y = 513;
+      winnerCosmonaut.scaleX = 0.25;
+      winnerCosmonaut.scaleY = 0.25;
+      createjs.Tween.get(winnerCosmonaut)
+              .to({y:208}, 2500, createjs.Ease.cubicInOut)
+              .to({y:450}, 1000, createjs.Ease.backIn)
+              .to({y:534}, 3000, createjs.Ease.sineInOut);
+      createjs.Tween.get(winnerCosmonaut)
+              .wait(2500)
+              .to({x:200}, 1000, createjs.Ease.circOut);
+
+      var winnerParachute = new createjs.Bitmap("png/codestory_blank_parachute_200.png");
+      winnerParachute.x = 187;
+      winnerParachute.y = 410;
+      winnerParachute.scaleX = 0.25;
+      winnerParachute.scaleY = 0.25;
+      winnerParachute.visible = false;
+      createjs.Tween.get(winnerParachute)
+              .wait(3500)
+              .set({visible:true})
+              .to({y:492}, 3000, createjs.Ease.sineInOut)
+              .wait(100)
+              .set({visible:false});
+
+      stage.addChild(winnerCosmonaut);
+      stage.addChild(winnerParachute);
       stage.addChild(winnerCapsule);
 
       var looserCapsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
-      looserCapsule.x = 200;
+      looserCapsule.x = 400;
       looserCapsule.y = 355;
       looserCapsule.scaleX = 0.75;
       looserCapsule.scaleY = 0.75;
-      createjs.Tween.get(looserCapsule, {loops:true})
-              .to({
-                x:looserCapsule.x,
-                y:150
-              }, 3000, createjs.Ease.cubicInOut);
+      createjs.Tween.get(looserCapsule)
+              .to({y:150}, 3000, createjs.Ease.cubicInOut);
       stage.addChild(looserCapsule);
 
       createjs.Ticker.addListener(window);
