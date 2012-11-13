@@ -23,11 +23,11 @@
       winnerCosmonaut.y = 513;
       winnerCosmonaut.scaleX = 0.25;
       winnerCosmonaut.scaleY = 0.25;
-      createjs.Tween.get(winnerCosmonaut)
+      createjs.Tween.get(winnerCosmonaut, {})
               .to({y:208}, 2500, createjs.Ease.cubicInOut)
               .to({y:450}, 1000, createjs.Ease.backIn)
               .to({y:534}, 3000, createjs.Ease.sineInOut);
-      createjs.Tween.get(winnerCosmonaut)
+      createjs.Tween.get(winnerCosmonaut, {})
               .wait(2500)
               .to({x:200}, 1000, createjs.Ease.circOut);
 
@@ -37,12 +37,12 @@
       winnerParachute.scaleX = 0.25;
       winnerParachute.scaleY = 0.25;
       winnerParachute.visible = false;
-      createjs.Tween.get(winnerParachute)
+      createjs.Tween.get(winnerParachute, {})
               .wait(3500)
-              .set({visible:true})
+              .set({visible:true}, winnerParachute)
               .to({y:492}, 3000, createjs.Ease.sineInOut)
               .wait(100)
-              .set({visible:false});
+              .set({visible:false}, winnerParachute);
 
       stage.addChild(winnerCosmonaut);
       stage.addChild(winnerParachute);
@@ -53,7 +53,7 @@
       looserCapsule.y = 355;
       looserCapsule.scaleX = 0.75;
       looserCapsule.scaleY = 0.75;
-      createjs.Tween.get(looserCapsule)
+      createjs.Tween.get(looserCapsule, {})
               .to({y:150}, 3000, createjs.Ease.cubicInOut);
       stage.addChild(looserCapsule);
 
