@@ -6,56 +6,61 @@
   <script src="js/tweenjs-0.3.0.min.js"></script>
   <script>
     var stage;
-    function init() {
-      stage = new createjs.Stage("scores");
-      var canvas = document.getElementById("scores");
 
-      var winnerCapsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
-      winnerCapsule.x = 100;
-      winnerCapsule.y = 355;
-      winnerCapsule.scaleX = 0.75;
-      winnerCapsule.scaleY = 0.75;
-      createjs.Tween.get(winnerCapsule, {})
-              .to({y:50}, 2500, createjs.Ease.cubicInOut);
+    function result(canvas, score, x) {
+      var y = 355;
 
-      var winnerCosmonaut = new createjs.Bitmap("png/codestory_spaceman_100.png");
-      winnerCosmonaut.x = 122;
-      winnerCosmonaut.y = 513;
-      winnerCosmonaut.scaleX = 0.25;
-      winnerCosmonaut.scaleY = 0.25;
-      createjs.Tween.get(winnerCosmonaut, {})
-              .to({y:208}, 2500, createjs.Ease.cubicInOut)
+      var capsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
+      capsule.x = x;
+      capsule.y = y;
+      capsule.scaleX = 0.75;
+      capsule.scaleY = 0.75;
+      createjs.Tween.get(capsule, {})
+              .to({y:y - score * 3}, 2500, createjs.Ease.cubicInOut);
+
+      var cosmonaut = new createjs.Bitmap("png/codestory_spaceman_100.png");
+      cosmonaut.x = x + 22;
+      cosmonaut.y = y + 155;
+      cosmonaut.scaleX = 0.25;
+      cosmonaut.scaleY = 0.25;
+      createjs.Tween.get(cosmonaut, {})
+              .to({y:y - score * 3 + 155}, 2500, createjs.Ease.cubicInOut)
               .to({y:450}, 1000, createjs.Ease.backIn)
               .to({y:534}, 3000, createjs.Ease.sineInOut);
-      createjs.Tween.get(winnerCosmonaut, {})
+      createjs.Tween.get(cosmonaut, {})
               .wait(2500)
-              .to({x:200}, 1000, createjs.Ease.circOut);
+              .to({x:cosmonaut.x + 100}, 1000, createjs.Ease.circOut);
 
-      var winnerParachute = new createjs.Bitmap("png/codestory_blank_parachute_200.png");
-      winnerParachute.x = 187;
-      winnerParachute.y = 410;
-      winnerParachute.scaleX = 0.25;
-      winnerParachute.scaleY = 0.25;
-      winnerParachute.visible = false;
-      createjs.Tween.get(winnerParachute, {})
+      var parachute = new createjs.Bitmap("png/codestory_blank_parachute_200.png");
+      parachute.x = x + 109;
+      parachute.y = 410;
+      parachute.scaleX = 0.25;
+      parachute.scaleY = 0.25;
+      parachute.visible = false;
+      createjs.Tween.get(parachute, {})
               .wait(3500)
-              .set({visible:true}, winnerParachute)
+              .set({visible:true}, parachute)
               .to({y:492}, 3000, createjs.Ease.sineInOut)
               .wait(100)
-              .set({visible:false}, winnerParachute);
+              .set({visible:false}, parachute);
 
-      stage.addChild(winnerCosmonaut);
-      stage.addChild(winnerParachute);
-      stage.addChild(winnerCapsule);
+      stage.addChild(cosmonaut);
+      stage.addChild(parachute);
+      stage.addChild(capsule);
+    }
 
-      var looserCapsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
-      looserCapsule.x = 400;
-      looserCapsule.y = 355;
-      looserCapsule.scaleX = 0.75;
-      looserCapsule.scaleY = 0.75;
-      createjs.Tween.get(looserCapsule, {})
-              .to({y:150}, 3000, createjs.Ease.cubicInOut);
-      stage.addChild(looserCapsule);
+    function percentage(actualValue, maximumValue) {
+      return actualValue * 100 / maximumValue;
+    }
+
+    function init(canvas) {
+      stage = new createjs.Stage("scores");
+
+      var winnerScore = 45;
+      var looserScore = 33;
+
+      result(canvas, percentage(winnerScore, winnerScore), 100);
+      result(canvas, percentage(looserScore, winnerScore), 400);
 
       createjs.Ticker.addListener(window);
       createjs.Ticker.setFPS(30);
@@ -66,7 +71,7 @@
     }
   </script>
 </head>
-<body onload="init();">
+<body onload="init(document.getElementById('scores'));">
 <canvas id="scores" width="1006" height="566">
   scores
 </canvas>
