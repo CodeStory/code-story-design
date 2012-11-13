@@ -7,40 +7,56 @@
   <script>
     var stage;
 
+    function realWidth(bitmap) {
+      return Math.floor(bitmap.image.width * bitmap.scaleX);
+    }
+
+    function realHeight(bitmap) {
+      return Math.floor(bitmap.image.height * bitmap.scaleY);
+    }
+
+    function bottomY(bitmap, canvas) {
+      return canvas.height - realHeight(bitmap);
+    }
+
     function result(canvas, score, x) {
-      var y = 355;
+      var marginTop = 30;
+      var rightMomentum = 100;
 
       var capsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
-      capsule.x = x;
-      capsule.y = y;
       capsule.scaleX = 0.75;
       capsule.scaleY = 0.75;
+      var y = bottomY(capsule, canvas);
+      var topCapsuleHeight = y - score * y / 100 + marginTop;
+      capsule.x = x - realWidth(capsule) / 2 + 5;
+      capsule.y = y;
       createjs.Tween.get(capsule, {})
-              .to({y:y - score * 3}, 2500, createjs.Ease.cubicInOut);
+              .to({y:topCapsuleHeight}, 2500, createjs.Ease.cubicInOut);
 
       var cosmonaut = new createjs.Bitmap("png/codestory_spaceman_100.png");
-      cosmonaut.x = x + 22;
-      cosmonaut.y = y + 155;
       cosmonaut.scaleX = 0.25;
       cosmonaut.scaleY = 0.25;
+      cosmonaut.x = x - realWidth(cosmonaut) / 2;
+      cosmonaut.y = y + 155;
+      var endOfFreeFall = bottomY(cosmonaut, canvas) - Math.floor(canvas.height / 6);
       createjs.Tween.get(cosmonaut, {})
-              .to({y:y - score * 3 + 155}, 2500, createjs.Ease.cubicInOut)
-              .to({y:450}, 1000, createjs.Ease.backIn)
-              .to({y:534}, 3000, createjs.Ease.sineInOut);
+              .to({y:topCapsuleHeight + 155}, 2500, createjs.Ease.cubicInOut)
+              .to({y:endOfFreeFall}, 1000, createjs.Ease.backIn)
+              .to({y:bottomY(cosmonaut, canvas)}, 3000, createjs.Ease.sineInOut);
       createjs.Tween.get(cosmonaut, {})
               .wait(2500)
-              .to({x:cosmonaut.x + 100}, 1000, createjs.Ease.circOut);
+              .to({x:cosmonaut.x + rightMomentum}, 1000, createjs.Ease.circOut);
 
       var parachute = new createjs.Bitmap("png/codestory_blank_parachute_200.png");
-      parachute.x = x + 109;
-      parachute.y = 410;
       parachute.scaleX = 0.25;
       parachute.scaleY = 0.25;
+      parachute.x = x - realWidth(parachute) / 2 + rightMomentum;
+      parachute.y = endOfFreeFall - realHeight(parachute);
       parachute.visible = false;
       createjs.Tween.get(parachute, {})
               .wait(3500)
               .set({visible:true}, parachute)
-              .to({y:492}, 3000, createjs.Ease.sineInOut)
+              .to({y:bottomY(parachute, canvas) - realHeight(cosmonaut)}, 3000, createjs.Ease.sineInOut)
               .wait(100)
               .set({visible:false}, parachute);
 
@@ -72,7 +88,7 @@
   </script>
 </head>
 <body onload="init(document.getElementById('scores'));">
-<canvas id="scores" width="1006" height="566">
+<canvas id="scores" width="1006" height="500">
   scores
 </canvas>
 </body>
