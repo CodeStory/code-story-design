@@ -6,23 +6,28 @@
   <script src="js/tweenjs-0.3.0.min.js"></script>
   <script>
     var stage;
+    var marginTop = 30;
+    var rightMomentum = 100;
+    var freeFallLengthPercentage = .9;
 
-    function realWidth(bitmap) {
-      return Math.floor(bitmap.image.width * bitmap.scaleX);
-    }
+    var winnerScore = 45;
+    var looserScore = 33;
 
-    function realHeight(bitmap) {
-      return Math.floor(bitmap.image.height * bitmap.scaleY);
-    }
+    var winnerX = 100;
+    var winnerY = 400;
 
-    function bottomY(bitmap, canvas) {
-      return canvas.height - realHeight(bitmap);
+    function init(canvas) {
+      stage = new createjs.Stage("scores");
+
+      result(canvas, percentage(winnerScore, winnerScore), winnerX);
+      result(canvas, percentage(looserScore, winnerScore), winnerY);
+
+      createjs.Ticker.addListener(window);
+      createjs.Ticker.setFPS(30);
+      createjs.Ticker.useRAF = true;
     }
 
     function result(canvas, score, x) {
-      var marginTop = 30;
-      var rightMomentum = 100;
-
       var capsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
       capsule.scaleX = 0.75;
       capsule.scaleY = 0.75;
@@ -38,7 +43,7 @@
       cosmonaut.scaleY = 0.25;
       cosmonaut.x = x - realWidth(cosmonaut) / 2;
       cosmonaut.y = y + 155;
-      var endOfFreeFall = bottomY(cosmonaut, canvas) - Math.floor(canvas.height / 6);
+      var endOfFreeFall = bottomY(cosmonaut, canvas) - Math.floor(canvas.height * (1 - freeFallLengthPercentage));
       createjs.Tween.get(cosmonaut, {})
               .to({y:topCapsuleHeight + 155}, 2500, createjs.Ease.cubicInOut)
               .to({y:endOfFreeFall}, 1000, createjs.Ease.backIn)
@@ -65,30 +70,30 @@
       stage.addChild(capsule);
     }
 
+    function tick(elapsedTime) {
+      stage.update(elapsedTime);
+    }
+
+    function realWidth(bitmap) {
+      return Math.floor(bitmap.image.width * bitmap.scaleX);
+    }
+
+    function realHeight(bitmap) {
+      return Math.floor(bitmap.image.height * bitmap.scaleY);
+    }
+
+    function bottomY(bitmap, canvas) {
+      return canvas.height - realHeight(bitmap);
+    }
+
     function percentage(actualValue, maximumValue) {
       return actualValue * 100 / maximumValue;
     }
 
-    function init(canvas) {
-      stage = new createjs.Stage("scores");
-
-      var winnerScore = 45;
-      var looserScore = 33;
-
-      result(canvas, percentage(winnerScore, winnerScore), 100);
-      result(canvas, percentage(looserScore, winnerScore), 400);
-
-      createjs.Ticker.addListener(window);
-      createjs.Ticker.setFPS(30);
-      createjs.Ticker.useRAF = true;
-    }
-    function tick(elapsedTime) {
-      stage.update(elapsedTime);
-    }
   </script>
 </head>
 <body onload="init(document.getElementById('scores'));">
-<canvas id="scores" width="1006" height="500">
+<canvas id="scores" width="1006" height="566">
   scores
 </canvas>
 </body>
