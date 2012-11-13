@@ -19,15 +19,16 @@
     function init(canvas) {
       stage = new createjs.Stage("scores");
 
-      result(canvas, percentage(winnerScore, winnerScore), winnerX);
-      result(canvas, percentage(looserScore, winnerScore), winnerY);
+      result(canvas, winnerScore, winnerScore, winnerX);
+      result(canvas, looserScore, winnerScore, winnerY);
 
       createjs.Ticker.addListener(window);
       createjs.Ticker.setFPS(30);
       createjs.Ticker.useRAF = true;
     }
 
-    function result(canvas, score, x) {
+    function result(canvas, currentScore, maxScore, x) {
+      var score = percentage(currentScore, maxScore);
       var capsule = new createjs.Bitmap("png/codestory_blank_capsule_100.png");
       capsule.scaleX = 0.75;
       capsule.scaleY = 0.75;
@@ -37,6 +38,31 @@
       capsule.y = y;
       createjs.Tween.get(capsule, {})
               .to({y:topCapsuleHeight}, 2500, createjs.Ease.cubicInOut);
+
+      var star = new createjs.Shape();
+      star.x = x;
+      star.y = topCapsuleHeight;
+      star.graphics.beginStroke("#CC0").setStrokeStyle(5, 0, 0, 0)
+              .beginFill("#FF5")
+              .drawPolyStar(0, 0, 30, 5, 0.6, 0)
+              .closePath();
+      star.visible = false;
+      createjs.Tween.get(star, {})
+              .wait(2000)
+              .set({visible:true}, star);
+      star.onTick = function() {
+        this.rotation += 2;
+      };
+
+      var textScore = new createjs.Text(Math.floor(score), "bold 14px Arial");
+      textScore.x = x;
+      textScore.y = topCapsuleHeight - 5;
+      textScore.textAlign = "center";
+      textScore.visible = false;
+      createjs.Tween.get(textScore, {})
+              .wait(2000)
+              .set({visible:true}, star)
+              .set({visible:true}, textScore);
 
       var cosmonaut = new createjs.Bitmap("png/codestory_spaceman_100.png");
       cosmonaut.scaleX = 0.25;
@@ -68,6 +94,8 @@
       stage.addChild(cosmonaut);
       stage.addChild(parachute);
       stage.addChild(capsule);
+      stage.addChild(star);
+      stage.addChild(textScore);
     }
 
     function tick(elapsedTime) {
